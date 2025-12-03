@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs - intro</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>Vuejs - intro</h1>
+ 
+    <div id="app">
+
+        <ul>
+            <li v-for="name in names">{{ name }}</li>
+        </ul>
+
+        <select>
+            <option v-bind:data-color="car.color" v-for="car in cars">
+                {{ car.brand }} - {{ car.color }}
+            </option>
+        </select>
+
+        <ul>
+            <li v-for="(value, key, index) in user">
+                {{ key }} => {{ value }} - index: {{ index }}
+            </li>
+        </ul>
+
+    </div>
+    
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+
+            setup() {
+               const names = ['Adrien', 'Jérôme', 'Emmanuel'];
+               const cars = [
+                { brand: 'Fiat 500', color: 'red' },
+                { brand: 'Toyota Yaris', color: 'green' },
+                { brand: 'Citroen C3', color: 'orange' }
+               ];
+               const user = {
+                name: 'Chris',
+                job: 'Développeur',
+                age: 99
+               }
+
+               return { names, cars, user }
+            }
+
+        }).mount('#app')
+    
+    </script>
+</body>
+</html>

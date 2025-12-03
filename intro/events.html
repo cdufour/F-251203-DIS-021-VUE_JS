@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs - intro</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <button @click="updateTitle">Update title</button>
+        <h2 v-on:click="updateUser" style="cursor: pointer">{{ user.name }}</h2>
+        <p>Age: {{ user.age }}</p>
+        <p v-if="user.age >= 110">Age limite atteint</p>
+    </div>
+    <script>
+        const { createApp, reactive, ref } = Vue;
+        createApp({
+            setup() {
+                const user = reactive({
+                    name: 'Chris',
+                    age: 99
+                })
+
+                const title = ref('Formation Vuejs');
+
+                function updateUser() {
+                    user.name = 'Adrien';
+                    if (user.age === 110) {
+                        user.age = 99;
+                    } else {
+                        user.age += 1;
+                    }
+                }
+
+                function updateTitle() {
+                    title.value = 'Title updated !';
+                }
+
+                return { user, updateUser, title, updateTitle }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
+
+<!--
+Exo Ad-hoc
+
+Dès que l'âge atteint 110:
+Faire apparaître dans le DOM le texte suivant "Age limite atteint"
+Réinitialiser l'âge à 99
+
+-->

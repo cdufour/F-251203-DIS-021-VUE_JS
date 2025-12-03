@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs - intro</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>Vuejs - intro</h1>
+
+    <div id="app">
+
+        {{ updateAge() }}
+
+        <p>user1.name: {{ user1.name }}</p>
+        <p>user1.age: {{ user1.age }}</p>
+
+        <p>user2.name: {{ user2.name }}</p>
+        <p>user2.age: {{ user2.age }}</p>
+
+    </div>
+    
+    <script>
+        const { createApp, reactive } = Vue;
+
+        createApp({
+
+            setup() {
+           
+                const user1 = {
+                    name: 'Adrien',
+                    firm: 'Knowmore',
+                    age: 30
+                };
+
+                const user2 = reactive({
+                    name: 'Emmanuel',
+                    firm: 'Sicem',
+                    age: 34
+                })
+
+                function updateAge() {
+                    setTimeout(() => {
+                        //user1.age = 60;
+                        //console.log(user1.age);
+                        user2.age = 68;
+                        console.log(user2.age);
+                    }, 4000)
+                }
+
+                return { user1, user2, updateAge }
+
+            }
+
+        }).mount('#app')
+    
+    </script>
+</body>
+</html>
