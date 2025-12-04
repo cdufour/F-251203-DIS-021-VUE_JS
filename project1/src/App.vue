@@ -1,5 +1,7 @@
 <script setup>
   import CodeGen from '@/components/exos/CodeGen.vue'
+  import TextLimit from '@/components/exos/TextLimit.vue'
+  import UserList from '@/components/users/List.vue'
   
   const title = "Formation Vuejs";
   const cars = [
@@ -10,17 +12,21 @@
 </script>
 
 <template>
+  <app-header />
   <h1>{{ title }}</h1>
 
+  <!--
   <ul>
     <li v-for="car in cars">{{ car.brand }}</li>
   </ul>
 
-
-  <img src="" />
-
   <CodeGen :withLetters="true" />
   <CodeGen :withLetters="false" />
+  <TextLimit :limit="50" />
+  -->
+
+  <UserList />
+  
 
 </template>
 
