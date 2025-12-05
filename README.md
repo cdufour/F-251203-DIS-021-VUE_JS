@@ -6,3 +6,4 @@
 - [VUE 3 CHEATSHEET FOR DEVELOPERS | pdf](https://learnvue.co/LearnVue-Vue-3-Cheatsheet.pdf)
 - [Vue CLI | website](https://cli.vuejs.org/)
 - [Vue CLI 3: Everything you need to know | youtube](https://youtu.be/cP9bhEknW_g?si=Cuz9tX8v1fOGT8c1)
+- [Vue JS 3 Tutorial - 41 - Dynamic Components | youtube](https://youtu.be/2NXCytskC2s?si=67AFWFm-CQ12NyII)
