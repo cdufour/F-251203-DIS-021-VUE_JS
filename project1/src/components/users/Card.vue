@@ -12,12 +12,33 @@ function onDelete(id) {
 
 
 <template>
-    <h3>{{ name }}</h3>
-    <p>{{ lastname }} ({{ id }})</p>
+    <div class="card mb-4 p-2">
+        <h3 :class="{ 
+            premium: name.length > 8,
+            focus: false
+        }">{{ name }}</h3>
+        
+        <p>{{ lastname }} ({{ id }})</p>
 
-    <div>
-        <button @click="onDelete(id)">Supprimer</button>
+        <div>
+            <button
+                class="btn btn-danger btn-sm" 
+                @click="onDelete(id)">Supprimer</button>
+        </div>
     </div>
-
-
 </template>
+
+<style scoped>
+h3 {
+    color: #2e9ab3
+}
+
+.premium {
+    font-size: 4em
+}
+
+.focus {
+    text-decoration: underline
+}
+
+</style>
